@@ -13,11 +13,12 @@ namespace DataStructuresAndAlgorithms.DataStructures
         {
             #region class variables
             private static int _count = 0;
-            private Node Head;
+            private Node Head = null;
             #endregion
 
             #region Constructors
             // constructor
+            public SLL() { }
             public SLL(T value)
             {
                 Node node = new Node();
@@ -97,6 +98,19 @@ namespace DataStructuresAndAlgorithms.DataStructures
             {
                 Node current = Head;
                 T val;
+
+                if (_count <= 1 && index < 1)
+                {
+                    if (Head != null)
+                    {
+                        val = Head.data;
+                        Head = null;
+                    }
+                    else
+                        val = default(T);
+                    return val;
+                }
+
                 if (index == -1)
                 {
                     while (current.next.next != null)
@@ -116,7 +130,7 @@ namespace DataStructuresAndAlgorithms.DataStructures
                 else
                 {
                     // first check if the index is greater than the count
-                    if (index > _count)
+                    if (index > _count - 1)
                     {
                         throw new IndexOutOfRangeException("Index is greater than the count.");
                     }
@@ -133,6 +147,7 @@ namespace DataStructuresAndAlgorithms.DataStructures
                     val = current.next.data;
                     current.next = temp;
                 } // middle of the list
+
                 _count -= 1;
                 return val;
             }
@@ -141,6 +156,13 @@ namespace DataStructuresAndAlgorithms.DataStructures
             public void Traverse()
             {
                 Node current = Head;
+
+                if (Head == null)
+                {
+                    Console.WriteLine("Empty List...");
+                    return;
+                }
+
                 while(current != null)
                 {
                     current.Print();
@@ -155,7 +177,7 @@ namespace DataStructuresAndAlgorithms.DataStructures
 
             #region class variables
             private static int _count = 0;
-            private Node Head;
+            private Node Head = null;
             #endregion
             private class Node
             {
@@ -176,6 +198,7 @@ namespace DataStructuresAndAlgorithms.DataStructures
             }
 
             #region Constructor
+            public DLL() { }
             public DLL (T val)
             {
                 Node node = new Node();
@@ -250,6 +273,20 @@ namespace DataStructuresAndAlgorithms.DataStructures
             {
                 T val;
                 Node current = Head;
+
+                if (_count <= 1 && index < 1)
+                {
+                    if (Head != null)
+                    {
+                        val = Head.data;
+                        Head = null;
+                    }
+                    else
+                        val = default(T);
+
+                    return val;
+                }
+
                 if (index == -1)
                 {
                     while (current.next.next != null)
@@ -271,7 +308,7 @@ namespace DataStructuresAndAlgorithms.DataStructures
                 }
                 else
                 {
-                    if (index > _count)
+                    if (index > _count - 1)
                     {
                         throw new IndexOutOfRangeException("[!!! CRIT] Index is greater than count.");
                     }
@@ -304,7 +341,14 @@ namespace DataStructuresAndAlgorithms.DataStructures
             public void Traverse()
             {
                 Node current = Head;
-                while(current != null)
+
+                if (Head == null)
+                {
+                    Console.WriteLine("Empty List...");
+                    return;
+                }
+
+                while (current != null)
                 {
                     current.Print();
                     current = current.next;
