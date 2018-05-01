@@ -11,6 +11,6 @@ namespace DataStructuresAndAlgorithms
             LinkedLists.SLL<int> dll = new LinkedLists.SLL<int>();
             int i = dll.Delete();
             dll.Traverse();  // output -> 2, 3, 4, 5
-            }
+        }
     }
 }
