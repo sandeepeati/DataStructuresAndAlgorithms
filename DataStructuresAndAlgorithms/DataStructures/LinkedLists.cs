@@ -54,6 +54,12 @@ namespace DataStructuresAndAlgorithms.DataStructures
                 @new.next = null;
                 #endregion
 
+                if (Head == null)
+                {
+                    Head = @new;
+                    return;
+                }
+
                 // default value is -1 which specifies that the node has to be added at the end of the linkedlist
                 if (index == -1)
                 {
@@ -169,6 +175,18 @@ namespace DataStructuresAndAlgorithms.DataStructures
                     current = current.next;
                 }
             }
+
+            public List<T> GetNodesDataAsList()
+            {
+                List<T> l = new List<T>();
+                Node Current = Head;
+                while(Current != null)
+                {
+                    l.Add(Current.data);
+                    Current = Current.next;
+                }
+                return l;
+            }
         }
 
         // Doubly linked list
@@ -223,6 +241,11 @@ namespace DataStructuresAndAlgorithms.DataStructures
                 @new.next = null;
                 #endregion
 
+                if (Head == null)
+                {
+                    Head = @new;
+                    return;
+                }
                 if (index == -1)
                 {
                     while (current.next != null)
@@ -354,6 +377,19 @@ namespace DataStructuresAndAlgorithms.DataStructures
                     current = current.next;
                 }
             }
+
+            public List<T> GetNodesDataAsList()
+            {
+                List<T> l = new List<T>();
+                Node Current = Head;
+                while (Current != null)
+                {
+                    l.Add(Current.data);
+                    Current = Current.next;
+                }
+                return l;
+            }
+
         }
     }
 }
