@@ -7,10 +7,16 @@ namespace DataStructuresAndAlgorithms
     {
         static void Main(string[] args)
         {
-            // Testing Doubly linked list
-            LinkedLists.SLL<int> dll = new LinkedLists.SLL<int>();
-            int i = dll.Delete();
-            dll.Traverse();  // output -> 2, 3, 4, 5
-            }
+            // Testing Stack
+            Stack<int> stack = new Stack<int>();
+            stack.Push(1);
+            stack.Push(2);
+            stack.Push(3);
+            int d =stack.Pop();
+            Console.WriteLine($"popped value {d}");
+            stack.Push(4);
+            stack.Push(5);
+            stack.Traverse();
+        }
     }
 }
